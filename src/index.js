@@ -11,12 +11,15 @@ const MINUS = "MINUS";
 
 // reducer : 스테이트가 존재하지 않는다면 0으로 스테이트를 초기화함
 const countModifier = (count = 0, action) => {
-  if (action.type === ADD) {
-    return count + 1;
-  } else if (action.type === MINUS) {
-    return count - 1;
-  } else {
-    return count;
+  switch (action.type) {
+    case ADD:
+      return count + 1;
+
+    case MINUS:
+      return count - 1;
+
+    default:
+      return count;
   }
 };
 
